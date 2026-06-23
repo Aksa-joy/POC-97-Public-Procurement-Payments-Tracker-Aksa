@@ -14,7 +14,7 @@ export const DelayHeatmap: React.FC<DelayHeatmapProps> = ({ data }) => {
   // If no data, show empty state
   if (data.length === 0 || agencies.length === 0 || contractTypes.length === 0) {
     return (
-      <div className="flex h-[350px] items-center justify-center rounded-xl border border-gray-800 bg-[#0F131E]/80 text-gray-400">
+      <div className="flex h-[350px] items-center justify-center rounded-xl border border-gray-800 bg-[#0B1117]/80 text-gray-400">
         <p className="text-sm">No delay hotspot data available for current filters.</p>
       </div>
     );
@@ -132,7 +132,7 @@ export const DelayHeatmap: React.FC<DelayHeatmapProps> = ({ data }) => {
           formatter: (params: any) => `${params.value[2]}d`,
         },
         itemStyle: {
-          borderColor: "#0F131E",
+          borderColor: "#0B1117",
           borderWidth: 2,
         },
         emphasis: {
@@ -146,7 +146,7 @@ export const DelayHeatmap: React.FC<DelayHeatmapProps> = ({ data }) => {
   };
 
   return (
-    <div className="rounded-xl border border-gray-800 bg-[#0F131E]/80 p-5 shadow-lg backdrop-blur-md">
+    <div className="rounded-xl border border-gray-800 bg-[#0B1117]/80 p-5 shadow-lg backdrop-blur-md">
       <h4 className="mb-4 text-sm font-semibold tracking-wide text-gray-200">
         Payment Processing Delay Heatmap (Agency vs Contract Type)
       </h4>

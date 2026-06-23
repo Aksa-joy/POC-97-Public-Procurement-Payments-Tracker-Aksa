@@ -19,7 +19,7 @@ export const KPICard: React.FC<KPICardProps> = ({
   iconColorClass,
 }) => {
   return (
-    <div className={`relative overflow-hidden rounded-xl border border-gray-800 bg-[#0F131E]/80 p-6 backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-gray-700 hover:shadow-[0_8px_30px_rgb(0,0,0,0.4)] group`}>
+    <div className={`relative overflow-hidden rounded-xl border border-gray-800 bg-[#0B1117]/80 p-6 backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-gray-700 hover:shadow-[0_8px_30px_rgb(0,0,0,0.4)] group`}>
       {/* Decorative background glow */}
       <div className={`absolute -right-4 -top-4 h-24 w-24 rounded-full opacity-5 blur-xl transition-all duration-500 group-hover:scale-150 ${colorClass}`} />
       

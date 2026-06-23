@@ -4,6 +4,9 @@ import uuid
 import duckdb
 import pandas as pd
 from datetime import datetime, timedelta
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Realistic Agencies and Vendors
 AGENCIES = [
@@ -109,7 +112,7 @@ def fetch_real_awards(limit=300):
     import json
     import ssl
     
-    url = "https://api.usaspending.gov/api/v2/search/spending_by_award/"
+    url = os.getenv("USASPENDING_API_URL", "https://api.usaspending.gov/api/v2/search/spending_by_award/")
     headers = {"Content-Type": "application/json"}
     context = ssl._create_unverified_context()
     

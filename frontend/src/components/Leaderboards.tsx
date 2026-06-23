@@ -15,7 +15,7 @@ const formatCurrency = (val: number) => {
 export const Leaderboards: React.FC<LeaderboardsProps> = ({ data }) => {
   const renderList = (entities: LeaderboardEntity[], title: string, sub: string) => {
     return (
-      <div className="flex flex-col rounded-xl border border-gray-800 bg-[#0F131E]/80 p-5 shadow-lg backdrop-blur-md">
+      <div className="flex flex-col rounded-xl border border-gray-800 bg-[#0B1117]/80 p-5 shadow-lg backdrop-blur-md">
         <h4 className="text-sm font-semibold tracking-wide text-gray-200">
           {title}
         </h4>

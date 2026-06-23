@@ -9,7 +9,7 @@ interface TimelineChartProps {
 export const TimelineChart: React.FC<TimelineChartProps> = ({ data }) => {
   if (!data || data.length === 0) {
     return (
-      <div className="flex h-[350px] items-center justify-center rounded-xl border border-gray-800 bg-[#0F131E]/80 text-gray-400">
+      <div className="flex h-[350px] items-center justify-center rounded-xl border border-gray-800 bg-[#0B1117]/80 text-gray-400">
         <p className="text-sm">No timeline trend data available for current filters.</p>
       </div>
     );
@@ -147,7 +147,7 @@ export const TimelineChart: React.FC<TimelineChartProps> = ({ data }) => {
   };
 
   return (
-    <div className="rounded-xl border border-gray-800 bg-[#0F131E]/80 p-5 shadow-lg backdrop-blur-md">
+    <div className="rounded-xl border border-gray-800 bg-[#0B1117]/80 p-5 shadow-lg backdrop-blur-md">
       <h4 className="mb-4 text-sm font-semibold tracking-wide text-gray-200">
         Award-to-Payment Timeline Trends (By Month)
       </h4>

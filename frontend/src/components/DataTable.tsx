@@ -165,7 +165,7 @@ export const DataTable: React.FC<DataTableProps> = ({ data, onExport }) => {
   });
 
   return (
-    <div className="rounded-xl border border-gray-800 bg-[#0F131E]/80 p-6 shadow-lg backdrop-blur-md">
+    <div className="rounded-xl border border-gray-800 bg-[#0B1117]/80 p-6 shadow-lg backdrop-blur-md">
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between mb-6">
         <div>
           <h4 className="text-sm font-semibold tracking-wide text-gray-200">

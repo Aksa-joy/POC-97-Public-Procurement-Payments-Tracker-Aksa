@@ -128,9 +128,9 @@ export default function Dashboard() {
   };
 
   return (
-    <main className="min-h-screen bg-[#0B0F19] text-gray-100 font-sans">
+    <main className="min-h-screen bg-[#030712] text-gray-100 font-sans">
       {/* Top Header Navigation */}
-      <header className="border-b border-gray-900 bg-[#0F131E]/40 backdrop-blur-md sticky top-0 z-50">
+      <header className="border-b border-gray-900 bg-[#0B1117]/40 backdrop-blur-md sticky top-0 z-50">
         <div className="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex items-center gap-3">
             <div className="rounded-lg bg-indigo-500/10 p-2 border border-indigo-500/20">
@@ -170,7 +170,7 @@ export default function Dashboard() {
               </div>
               
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm text-gray-300 leading-relaxed">
-                <div className="bg-[#0B0F19]/60 border border-gray-800/40 p-4 rounded-lg flex flex-col justify-between">
+                <div className="bg-[#0B1117]/60 border border-gray-800/40 p-4 rounded-lg flex flex-col justify-between">
                   <div>
                     <h3 className="font-bold text-white mb-2 flex items-center gap-2">
                       <span className="flex h-5 w-5 items-center justify-center rounded-full bg-rose-950/80 text-[10px] font-mono text-rose-400 border border-rose-900/50">1</span>
@@ -186,7 +186,7 @@ export default function Dashboard() {
                   </div>
                 </div>
 
-                <div className="bg-[#0B0F19]/60 border border-gray-800/40 p-4 rounded-lg flex flex-col justify-between">
+                <div className="bg-[#0B1117]/60 border border-gray-800/40 p-4 rounded-lg flex flex-col justify-between">
                   <div>
                     <h3 className="font-bold text-white mb-2 flex items-center gap-2">
                       <span className="flex h-5 w-5 items-center justify-center rounded-full bg-emerald-950/80 text-[10px] font-mono text-emerald-400 border border-emerald-900/50">2</span>
@@ -202,7 +202,7 @@ export default function Dashboard() {
                   </div>
                 </div>
 
-                <div className="bg-[#0B0F19]/60 border border-gray-800/40 p-4 rounded-lg flex flex-col justify-between">
+                <div className="bg-[#0B1117]/60 border border-gray-800/40 p-4 rounded-lg flex flex-col justify-between">
                   <div>
                     <h3 className="font-bold text-white mb-2 flex items-center gap-2">
                       <span className="flex h-5 w-5 items-center justify-center rounded-full bg-amber-950/80 text-[10px] font-mono text-amber-400 border border-amber-900/50">3</span>
@@ -220,6 +220,47 @@ export default function Dashboard() {
               </div>
             </section>
 
+            {/* Context & Governance Panels */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {/* Why This Matters Panel */}
+              <section className="rounded-xl border border-gray-800 bg-[#0B1117]/80 p-5 shadow-lg backdrop-blur-md relative overflow-hidden">
+                <div className="absolute right-0 top-0 translate-x-8 -translate-y-8 h-32 w-32 rounded-full bg-indigo-500/5 blur-2xl"></div>
+                
+                <h3 className="text-sm font-semibold tracking-wide text-gray-200 border-b border-gray-800/60 pb-3 flex items-center gap-2">
+                  <HelpCircle className="h-4 w-4 text-indigo-400" />
+                  Why This Matters
+                </h3>
+                
+                <div className="mt-3 text-xs text-gray-400 leading-relaxed space-y-2">
+                  <p>
+                    Federal procurement involves hundreds of billions in public obligations, but the granular timeline between awarding a contract, submitting invoices, and completing payouts remains a major black box. 
+                  </p>
+                  <p>
+                    Systemic payment delays directly impact contractor liquidity, throttle supply chain velocity, and disproportionately affect small business partners. Tracking these durations is crucial for auditing compliance against the statutory Prompt Payment Act and identifying agency-level bottlenecks.
+                  </p>
+                </div>
+              </section>
+
+              {/* Who Controls the Rail Panel */}
+              <section className="rounded-xl border border-gray-800 bg-[#0B1117]/80 p-5 shadow-lg backdrop-blur-md relative overflow-hidden">
+                <div className="absolute right-0 top-0 translate-x-8 -translate-y-8 h-32 w-32 rounded-full bg-indigo-500/5 blur-2xl"></div>
+                
+                <h3 className="text-sm font-semibold tracking-wide text-gray-200 border-b border-gray-800/60 pb-3 flex items-center gap-2">
+                  <Cpu className="h-4 w-4 text-indigo-400" />
+                  Who Controls the Rail
+                </h3>
+                
+                <div className="mt-3 text-xs text-gray-400 leading-relaxed space-y-2">
+                  <p>
+                    "The Rail" represents the financial routing infrastructure that moves authorized public funds from agency budgets to contractor bank accounts.
+                  </p>
+                  <p>
+                    This rail is co-controlled by federal agencies (DoD, HHS, DoT, etc.) who verify milestones and approve invoices, and the Department of the Treasury's central systems (like CARS and IPP) which handle payment execution. Our dashboard holds these controllers accountable by tracking their latency performance.
+                  </p>
+                </div>
+              </section>
+            </div>
+
             {error && (
               <div className="rounded-xl border border-rose-900 bg-rose-950/20 p-4 text-sm text-rose-400">
                 <strong>Error Syncing Dashboard:</strong> {error}
@@ -229,7 +270,7 @@ export default function Dashboard() {
             {/* Loading Overlay Context */}
             <div className="relative">
               {loading && (
-                <div className="absolute inset-0 z-40 flex items-center justify-center rounded-xl bg-[#0B0F19]/60 backdrop-blur-sm h-full w-full">
+                <div className="absolute inset-0 z-40 flex items-center justify-center rounded-xl bg-[#030712]/60 backdrop-blur-sm h-full w-full">
                   <div className="flex flex-col items-center gap-2">
                     <div className="h-8 w-8 animate-spin rounded-full border-2 border-indigo-500 border-t-transparent"></div>
                     <span className="text-xs text-gray-400 font-medium">Updating analytics...</span>
@@ -298,7 +339,7 @@ export default function Dashboard() {
             </section>
 
             {/* Filter Control Dashboard */}
-            <section className="rounded-xl border border-gray-800 bg-[#0F131E]/60 p-5 backdrop-blur-md shadow-lg">
+            <section className="rounded-xl border border-gray-800 bg-[#0B1117]/60 p-5 backdrop-blur-md shadow-lg">
               <div className="flex flex-col gap-5">
                 <div className="flex items-center justify-between border-b border-gray-800 pb-3">
                   <h3 className="text-sm font-semibold tracking-wide text-gray-200">

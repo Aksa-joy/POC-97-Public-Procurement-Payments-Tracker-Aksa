@@ -19,7 +19,13 @@ This platform maps directly to federal procurement standards:
 - **USAspending.gov**: Source of transaction profiles, contract values, recipient information, funding agencies, and transaction history.
 - **Prompt Payment Act (31 U.S.C. Chapter 39)**: Under federal law, agencies must make payments to contractors within **30 days** of receiving a proper invoice. If payments are delayed, agencies incur interest penalties. This platform tracks delay metrics exceeding this 30-day compliance standard.
 
-## 3. Problem Statement
+## 4. Why This Matters
+Federal procurement processes control hundreds of billions in public obligations, yet the timelines from contract award to contractor payment remain a black box. Systemic payment delays directly strain contractor liquidity, stifle supply chain velocity, and disproportionately penalize small business partners. Monitoring this lifecycle brings transparency, highlights administrative inefficiencies, and checks compliance against the statutory Prompt Payment Act.
+
+## 5. Who Controls the Rail
+"The Rail" represents the structural pathway and ledger routing federal funds from agency accounts to vendor bank deposits. This rail is governed by the authorizing agencies (such as DoD, HHS, DoT, VA) who verify work and approve invoice milestones, and the Treasury Department's central payment execution systems (CARS, IPP). This dashboard tracks and compares these controllers to audit their speed, efficiency, and compliance.
+
+## 6. Problem Statement
 Federal procurement data is highly fragmented. While USAspending.gov tracks *contract obligations*, granular details concerning *invoice submissions* and *actual payout dates* are stored across separate, siloed agency accounting systems (e.g., CARS, IPP). This makes it challenging to:
 1. Track the exact durations between completing contract milestones, invoicing, and receiving funds.
 2. Identify systematic agency payment bottlenecks (e.g., DoD audit delays).

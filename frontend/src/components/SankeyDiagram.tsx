@@ -9,7 +9,7 @@ interface SankeyDiagramProps {
 export const SankeyDiagram: React.FC<SankeyDiagramProps> = ({ data }) => {
   if (!data || !data.nodes || data.nodes.length === 0 || !data.links || data.links.length === 0) {
     return (
-      <div className="flex h-[350px] items-center justify-center rounded-xl border border-gray-800 bg-[#0F131E]/80 text-gray-400">
+      <div className="flex h-[350px] items-center justify-center rounded-xl border border-gray-800 bg-[#0B1117]/80 text-gray-400">
         <p className="text-sm">No procurement flow data available for current filters.</p>
       </div>
     );
@@ -39,7 +39,7 @@ export const SankeyDiagram: React.FC<SankeyDiagramProps> = ({ data }) => {
       name: node.name,
       itemStyle: {
         color: color,
-        borderColor: "#0F131E",
+        borderColor: "#0B1117",
         borderWidth: 1,
       },
     };
@@ -106,7 +106,7 @@ export const SankeyDiagram: React.FC<SankeyDiagramProps> = ({ data }) => {
   };
 
   return (
-    <div className="rounded-xl border border-gray-800 bg-[#0F131E]/80 p-5 shadow-lg backdrop-blur-md">
+    <div className="rounded-xl border border-gray-800 bg-[#0B1117]/80 p-5 shadow-lg backdrop-blur-md">
       <h4 className="mb-4 text-sm font-semibold tracking-wide text-gray-200">
         Procurement Flow Diagram (Award Funding &rarr; Invoice Status &rarr; Payment Outcome)
       </h4>

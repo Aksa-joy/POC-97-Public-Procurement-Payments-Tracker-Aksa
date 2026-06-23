@@ -8,8 +8,8 @@ This report highlights the design system, color palettes, charting layouts, and 
 
 The dashboard implements a **Cinematic Dark Theme** matching modern analytics dashboards (e.g., Vercel, Datadog) to focus user attention on anomalies and hotspots.
 
-- **Primary Background**: `#0B0F19` (Vivid deep navy-black).
-- **Secondary Containers**: `#0F131E`/80 with a `backdrop-blur-md` filter, providing a clean glassmorphism style.
+- **Primary Background**: `#030712` (Cinematic deep dark black).
+- **Secondary Containers / Surface**: `#0B1117`/80 with a `backdrop-blur-md` filter, providing a clean glassmorphism style.
 - **Accents & Status Colors**:
   - `Indigo` (`#6366F1`): Represents structural elements, awards, and default information guides.
   - `Emerald` (`#10B981`): Signals completed payments, on-time schedules, and high performance.
