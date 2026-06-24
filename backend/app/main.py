@@ -1,3 +1,13 @@
+import os
+import sys
+from dotenv import load_dotenv
+
+# Add parent directory of 'app' to system path to allow running as script or from app folder
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+
+# Load environment variables
+load_dotenv()
+
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import StreamingResponse
@@ -112,3 +122,8 @@ def export_transactions(payload: FilterPayload):
         )
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run("app.main:app", host="127.0.0.1", port=8000, reload=True)

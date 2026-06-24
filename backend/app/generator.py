@@ -1,107 +1,36 @@
 import os
+import sys
 import random
 import uuid
+import json
 import duckdb
 import pandas as pd
 from datetime import datetime, timedelta
 from dotenv import load_dotenv
 
+# Add parent directory of 'app' to system path to allow running as script or from app folder
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+
 load_dotenv()
 
-# Realistic Agencies and Vendors
-AGENCIES = [
-    "Department of Defense (DoD)",
-    "Department of Health and Human Services (HHS)",
-    "Department of Transportation (DoT)",
-    "Department of Energy (DoE)",
-    "Department of Veterans Affairs (VA)",
-    "Department of Homeland Security (DHS)",
-    "NASA"
-]
+# Load seed data from JSON file
+SEED_DATA_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "data", "seed_data.json"))
+try:
+    with open(SEED_DATA_PATH, "r", encoding="utf-8") as f:
+        seed_data = json.load(f)
+except Exception as e:
+    print(f"Error loading seed_data.json from {SEED_DATA_PATH}: {e}")
+    seed_data = {
+        "AGENCIES": [],
+        "VENDORS": [],
+        "CONTRACT_TYPES": [],
+        "DESCRIPTIONS": {}
+    }
 
-VENDORS = [
-    "Lockheed Martin Corp.",
-    "Northrop Grumman Corp.",
-    "Pfizer Inc.",
-    "Raytheon Technologies",
-    "McKesson Corp.",
-    "General Dynamics",
-    "Deloitte Consulting LLP",
-    "Booz Allen Hamilton",
-    "FedEx Government Services",
-    "Carahsoft Technology Corp."
-]
-
-CONTRACT_TYPES = [
-    "Firm Fixed Price",
-    "Cost Plus Fixed Fee",
-    "Time and Materials",
-    "Labor Hours",
-    "Indefinite Delivery"
-]
-
-DESCRIPTIONS = {
-    "Lockheed Martin Corp.": [
-        "Tactical aircraft maintenance and support",
-        "Next-generation missile defense research",
-        "Advanced avionics system integration",
-        "Satellite communications upgrade"
-    ],
-    "Northrop Grumman Corp.": [
-        "Autonomous surveillance drone development",
-        "Cybersecurity defense operations support",
-        "Radar system modernization",
-        "B-2 Spirit heavy bomber logistics"
-    ],
-    "Pfizer Inc.": [
-        "National vaccine distribution and logistics",
-        "Pharmaceutical research and stockpiling",
-        "Pediatric therapeutic trial program",
-        "Emergency antiviral deployment"
-    ],
-    "Raytheon Technologies": [
-        "Air-to-air missile guidance overhaul",
-        "Radar transceiver system deployment",
-        "Cyber threat analysis and mitigation",
-        "Command and control software maintenance"
-    ],
-    "McKesson Corp.": [
-        "Medical equipment supply for VA clinics",
-        "Pharmaceutical wholesale distribution",
-        "National health reserve logistics",
-        "Telehealth clinical software integration"
-    ],
-    "General Dynamics": [
-        "Navy submarine construction engineering",
-        "Armored combat vehicle upgrades",
-        "IT infrastructure cloud modernization",
-        "Tactical communication network support"
-    ],
-    "Deloitte Consulting LLP": [
-        "Enterprise resource planning modernization",
-        "Agency procurement workflow optimization",
-        "Financial audit readiness support",
-        "Data analytics platform implementation"
-    ],
-    "Booz Allen Hamilton": [
-        "AI-driven predictive threat analytics",
-        "Defense logistics optimization consulting",
-        "Cloud migration strategy and deployment",
-        "Quantum computing research support"
-    ],
-    "FedEx Government Services": [
-        "Express mail courier transport logistics",
-        "Cold chain medical supply distribution",
-        "Critical defense parts priority shipping",
-        "Global courier and tracking services"
-    ],
-    "Carahsoft Technology Corp.": [
-        "Enterprise software license subscription",
-        "SaaS cloud collaboration platform",
-        "Database administration tools licensing",
-        "Endpoint cybersecurity software suite"
-    ]
-}
+AGENCIES = seed_data.get("AGENCIES", [])
+VENDORS = seed_data.get("VENDORS", [])
+CONTRACT_TYPES = seed_data.get("CONTRACT_TYPES", [])
+DESCRIPTIONS = seed_data.get("DESCRIPTIONS", {})
 
 def fetch_real_awards(limit=300):
     """

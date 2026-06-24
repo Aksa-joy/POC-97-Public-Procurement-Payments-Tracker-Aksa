@@ -158,7 +158,7 @@ export default function Dashboard() {
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-10">
           
           {/* Main Area (70%) */}
-          <div className="lg:col-span-7 space-y-8 order-2 lg:order-1">
+          <div className="lg:col-span-7 space-y-8">
             
             {/* Storytelling & Strategic Intelligence Section */}
             <section className="rounded-xl border border-indigo-950 bg-indigo-950/20 p-6 relative overflow-hidden">
@@ -296,7 +296,7 @@ export default function Dashboard() {
           </div>
 
           {/* Sidebar Area (30%) */}
-          <div className="lg:col-span-3 space-y-8 order-1 lg:order-2">
+          <div className="lg:col-span-3 space-y-8">
             
             {/* Data Strategy Panel */}
             <section className="rounded-xl border border-indigo-950 bg-indigo-950/10 p-5 backdrop-blur-md shadow-lg relative overflow-hidden">
